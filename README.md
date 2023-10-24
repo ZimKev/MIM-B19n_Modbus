@@ -43,7 +43,7 @@ In the Installation manual I got with my MIM-19n (could not find this version in
 - Register 83 - 99? - not describted
 
 When reading the discription, than there is the information that by writing a MassageSet ID to registers starting at 6000 or 7000 you can add new funktions to the Modbus.
-This "MassageSet IDs" can be find in NASA.ptc file. (I am still exporting, I found them in the Installation folder from SNET-PRO and not all are relevant for all Devices.
+This "MassageSet IDs" can be found in NASA.ptc file. (I am still exporting, I found them in the Installation folder from SNET-PRO and not all are relevant for all Devices.
 
 When e.g. the MassageSet ID 0x8238 is written to adress 6000, than the register 5 shows the Current operating frequency of the compressor 
 ```

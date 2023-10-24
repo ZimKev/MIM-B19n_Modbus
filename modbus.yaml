@@ -1,0 +1,237 @@
+  - name: "samsung"
+    type: serial
+    port: /dev/ttyUSB0
+    baudrate: 9600
+    bytesize: 8
+    method: rtu
+    parity: E
+    stopbits: 1
+    close_comm_on_error: true
+    delay: 0
+    message_wait_milliseconds: 30
+    retries: 3
+    retry_on_empty: false
+    timeout: 5
+    
+    switches:
+        
+      - name: 'EHS_Quiet_Control'
+        slave: 2
+        address: 78
+        write_type: holding
+        command_on: 1
+        command_off: 0
+        verify:
+            input_type: holding
+            address: 78
+            delay: 1
+            state_on: 1
+            state_off: 0
+        unique_id: EHS_Quiet_Control
+        
+      - name: 'EHS_Away_function'
+        slave: 2
+        address: 79
+        write_type: holding
+        command_on: 1
+        command_off: 0
+        verify:
+            input_type: holding
+            address: 79
+            delay: 1
+            state_on: 1
+            state_off: 0
+        unique_id: EHS_Away_function
+        
+      - name: 'EHS_Buzzer' #Not working 
+        slave: 2
+        address: 3
+        write_type: holding
+        command_on: 0
+        command_off: 1
+        unique_id: EHS_Buzzer
+        
+    sensors:
+    
+      - name: 'EHS_Modbus_Interface_Error'
+        slave: 2
+        address: 0
+        unique_id: EHS_Modbus_Interface_Error
+        
+      - name: 'EHS_Outdoor_Unit_Error'
+        slave: 2
+        address: 1
+        unique_id: EHS_Outdoor_Unit_Error
+        
+      - name: 'EHS_Defrost_Operation'
+        slave: 2
+        address: 2
+        unique_id: EHS_Defrost_Operation
+
+      - name: 'EHS_Compressor_Frequency'
+        unit_of_measurement: Hz
+        slave: 2
+        address: 4
+        scale: 1
+        scan_interval: 5
+        precision: 1
+        unique_id: EHS_Compressor_Frequency
+        
+      - name: 'EHS_Outside_Temp'
+        unit_of_measurement: °C
+        slave: 2
+        address: 5
+        scale: 0.1
+        scan_interval: 30
+        precision: 2
+        unique_id: EHS_Outside_Temp
+
+      - name: 'EHS_Error_Code'
+        slave: 2
+        address: 63
+        unique_id: EHS_Error_Code
+        
+      - name: 'EHS_Restrictions'
+        slave: 2
+        address: 64
+        unique_id: EHS_Restrictions
+    
+      - name: 'EHS_Water_IN_Temp'
+        unit_of_measurement: °C
+        slave: 2
+        address: 65
+        scale: 0.1
+        scan_interval: 20
+        precision: 1
+        unique_id: EHS_Water_IN_Temp
+        
+      - name: 'EHS_Water_OUT_Temp'
+        unit_of_measurement: °C
+        slave: 2
+        address: 66
+        scale: 0.1
+        scan_interval: 20
+        precision: 1
+        unique_id: EHS_Water_OUT_Temp
+        
+      - name: 'EHS_Hot_Water_Mode'
+        slave: 2
+        address: 73
+        scan_interval: 2
+        unique_id: EHS_Hot_Water_Mode
+        
+      - name: 'EHS_Hot_Water_Temp_BSP'
+        unit_of_measurement: °C
+        slave: 2
+        address: 75
+        scale: 0.1
+        scan_interval: 20
+        precision: 1
+        unique_id: EHS_Hot_Water_Temp_BSP
+        
+      - name: 'EHS_Water_OUT_Set_Temp'
+        unit_of_measurement: °C
+        slave: 2
+        address: 68
+        scale: 0.1
+        scan_interval: 20
+        precision: 1
+        unique_id: EHS_Water_OUT_Set_Temp
+        
+      - name: 'EHS_Booster_Heater'
+        slave: 2
+        address: 85
+        unique_id: EHS_Booster_Heater
+        
+      - name: 'EHS_Booster_Heater'
+        slave: 2
+        address: 85
+        unique_id: EHS_Backup_Heater
+        
+      - name: 'EHS_Water_Flow'
+        unit_of_measurement: l/min
+        slave: 2
+        address: 87
+        scale: 0.1
+        scan_interval: 30
+        precision: 2
+        unique_id: EHS_Water_Flow
+        
+      - name: 'EHS_3_way_valve_position'
+        slave: 2
+        address: 89
+        unique_id: EHS_3_way_valve_position 
+        
+      - name: 'EHS_FR_Controll'
+        slave: 2
+        address: 88
+        scan_interval: 20
+        unique_id: EHS_FR_Controll
+        
+      - name: 'EHS_Mixing_valve_temp'
+        unit_of_measurement: °C
+        slave: 2
+        address: 90
+        scale: 0.1
+        scan_interval: 20
+        precision: 1
+        unique_id: EHS_Mixing_valve_temp
+        
+      - name: 'EHS_Fan_speed'
+        slave: 2
+        address: 6
+        scan_interval: 20
+        unique_id: EHS_Fan_speed
+        
+      - name: 'EHS_Backup_heater_temp'
+        unit_of_measurement: °C
+        slave: 2
+        address: 91
+        scale: 0.1
+        scan_interval: 20
+        precision: 1
+        unique_id: EHS_Backup_heater_temp
+        
+      - name: 'EHS_Room_temp'
+        unit_of_measurement: °C
+        slave: 2
+        address: 92
+        scale: 0.1
+        scan_interval: 20
+        precision: 1
+        unique_id: EHS_Room_temp
+        
+        
+        
+    climates: 
+      - name: 'EHS_Heating_Set'
+        slave: 2
+        address: 66
+        scale: 0.1
+        max_temp: 55
+        min_temp: 20
+        scan_interval: 20
+        target_temp_register: 68
+        hvac_onoff_register: 52
+        hvac_mode_register:
+            address: 53
+            values:
+                state_auto: 0
+                state_cool: 1
+                state_dry: 2
+                state_fan_only: 3
+                state_heat: 4
+        unique_id: EHS_Heating_Set
+        
+      - name: 'EHS_Hot_Water_Set'
+        slave: 2
+        address: 75
+        #Ist Temp
+        scale: 0.1
+        max_temp: 55
+        min_temp: 35
+        scan_interval: 20
+        target_temp_register: 74
+        #Soll Temp
+        hvac_onoff_register: 72
+        unique_id: EHS_Hot_Water_Set

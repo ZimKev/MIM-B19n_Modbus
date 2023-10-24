@@ -50,9 +50,5 @@ When e.g. the MassageSet ID 0x8238 is written to adress 6000, than the register 
 Thats for now, page will be updated from time to time.
 Maybe Youtube video following
 Should not be only work at Home assistant.
-MIM-19N(T) Installation guid has more information inside, if I can not find it in the Net I will scan it and upload it here
-
-
-
-
+MIM-19N(T) Installation guid has more information inside, if I can not find the version I have in printed format in the www I will scan it and upload it here.
 

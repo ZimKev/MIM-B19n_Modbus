@@ -50,6 +50,28 @@ When e.g. the MassageSet ID 0x8238 is written to adress 6000, than the register 
 <Message ProtocolID ="VAR_out_control_cfreq_comp1" Index="8238">
 ```
 
+To write the MassageSet IDs to the Interface via Home Assistant the following Service can be used. (Just an example of tested registers)
+If there are multiple functions to add, they must be written all at once using command 16 (Write multiple holding registers)
+
+Add indoor unit funktions:
+```
+service: modbus.write_register
+data:
+  hub: samsung
+  address: 7000
+  value: [0x411E, 0x42D7, 0x42D6, 0x4087, 0x406c, 0x42E9, 0x42F1, 0x4067, 0x428C]
+  slave: 2
+```
+Add outdoor unit Funktions:
+```
+service: modbus.write_register
+data:
+  hub: samsung
+  address: 6000
+  value: [0x8238, 0x8204, 0x823D]
+  slave: 2
+```
+
 Thats for now, page will be updated from time to time.
 Maybe Youtube video following
 Should not be only work at Home assistant.

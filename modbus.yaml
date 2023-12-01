@@ -43,13 +43,27 @@
             state_off: 0
         unique_id: EHS_Away_function
         
-      - name: 'EHS_Buzzer' #Not working 
+      - name: 'EHS_Buzzer' #Non Funktional
         slave: 2
         address: 3
         write_type: holding
         command_on: 0
         command_off: 1
         unique_id: EHS_Buzzer
+        
+      - name: 'EHS_Brauchwasser'
+        slave: 2
+        address: 72
+        write_type: holding
+        command_on: 1
+        command_off: 0
+        verify:
+            input_type: holding
+            address: 72
+            delay: 1
+            state_on: 1
+            state_off: 0
+        unique_id: EHS_Brauchwasser
         
     sensors:
     
@@ -67,25 +81,263 @@
         slave: 2
         address: 2
         unique_id: EHS_Defrost_Operation
-
-      - name: 'EHS_Compressor_Frequency'
-        unit_of_measurement: Hz
+        
+      - name: 'EHS_Outside_Test'
+        unit_of_measurement: °C
         slave: 2
         address: 4
-        scale: 1
-        scan_interval: 5
-        precision: 1
-        unique_id: EHS_Compressor_Frequency
+        scan_interval: 20
+        unique_id: EHS_Outside_Test
+        
+      - name: 'EHS_Operation_Mode'
+        slave: 2
+        address: 5
+        scan_interval: 30
+        unique_id: EHS_Operation_Mode
+        
+      - name: 'EHS_Compressor_Status'
+        slave: 2
+        address: 6
+        scan_interval: 30
+        unique_id: EHS_Compressor_Status
+        
+      - name: 'EHS_Hot_Gas_Status'
+        slave: 2
+        address: 7
+        scan_interval: 30
+        unique_id: EHS_Hot_Gas_Status
+        
+      - name: 'Liquid Valuve Status'
+        slave: 2
+        address: 8
+        scan_interval: 30
+        unique_id: Liquid_Valuve_Status
+        
+      - name: 'EHS_EVI_Bypass'
+        slave: 2
+        address: 9
+        scan_interval: 30
+        unique_id: EHS_EVI_Bypass
+        
+      - name: 'EHS_4-way_Valve_Status'
+        slave: 2
+        address: 10
+        scan_interval: 30
+        unique_id: EHS_4-way_Valve_Status
+        
+      - name: 'ETS_Base_Heater'
+        slave: 2
+        address: 11
+        scan_interval: 30
+        unique_id: ETS_Base_Heater
+
+      - name: 'ETS_PHE_Heater'
+        slave: 2
+        address: 12
+        scan_interval: 30
+        unique_id: ETS_PHE_Heater
         
       - name: 'EHS_Outside_Temp'
         unit_of_measurement: °C
         slave: 2
-        address: 5
+        address: 13
         scale: 0.1
         scan_interval: 30
         precision: 2
         unique_id: EHS_Outside_Temp
-
+        
+      - name: 'EHS_High_Pressure'
+        slave: 2
+        address: 14
+        unit_of_measurement: 'kgfcm2'
+        scale: 0.1
+        scan_interval: 30
+        unique_id: EHS_High_Pressure
+        
+      - name: 'EHS_Low_Pressure'
+        slave: 2
+        address: 15
+        unit_of_measurement: 'kgfcm2'
+        scale: 0.1
+        scan_interval: 30
+        unique_id: EHS_Low_Pressure
+        
+      - name: 'EHS_Discharge_Temp'
+        slave: 2
+        address: 16
+        unit_of_measurement: °C
+        scale: 0.1
+        scan_interval: 30
+        precision: 1
+        unique_id: EHS_Discharge_Temp
+        
+      - name: 'EHS_Compressor_Current'
+        slave: 2
+        address: 17
+        unit_of_measurement: A
+        scale: 0.1
+        scan_interval: 30
+        precision: 1
+        unique_id: EHS_Compressor_Current
+        
+      - name: 'EHS_Heat_exchanger_outlet_temperature_condout'
+        slave: 2
+        address: 18
+        unit_of_measurement: °C
+        scale: 0.1
+        scan_interval: 30
+        precision: 1
+        unique_id: EHS_Heat_exchanger_outlet_temperature_condout
+        
+      - name: 'EHS_Suction_Temperature'
+        slave: 2
+        address: 19
+        unit_of_measurement: °C
+        scale: 0.1
+        #data_type: int8
+        scan_interval: 30
+        precision: 1
+        unique_id: EHS_Suction_Temperature
+        
+      - name: 'EHS_EVI_In_Temperature'
+        slave: 2
+        address: 20
+        unit_of_measurement: °C
+        scale: 0.1
+        #data_type: int8
+        scan_interval: 30
+        precision: 1
+        unique_id: EHS_EVI_In_Temperature
+        
+      - name: 'EHS_EVI_Out_Temperature'
+        slave: 2
+        address: 21
+        unit_of_measurement: °C
+        scale: 0.1
+        #data_type: int8
+        scan_interval: 30
+        precision: 1
+        unique_id: EHS_EVI_Out_Temperature
+        
+      - name: 'EHS_Modulation_Fan'
+        slave: 2
+        address: 22
+        scan_interval: 20
+        unit_of_measurement: 'rmp'
+        scale: 1
+        precision: 1
+        unique_id: EHS_Modulation_Fan
+        
+      - name: 'ETS_Main_EEV1'
+        slave: 2
+        address: 23
+        scan_interval: 30
+        unique_id: ETS_Main_EEV1
+        
+      - name: 'ETS_Outdoor_Error_code'
+        slave: 2
+        address: 24
+        scan_interval: 30
+        unique_id: ETS_Outdoor_Error_code
+        
+      - name: 'EHS_Compressor_Order_Frequency'
+        slave: 2
+        address: 25
+        scan_interval: 20
+        unit_of_measurement: Hz
+        precision: 1
+        unique_id: EHS_Compressor_Order_Frequency
+        
+      - name: 'EHS_Compressor_Target_Frequency'
+        slave: 2
+        address: 26
+        scan_interval: 20
+        unit_of_measurement: Hz
+        precision: 1
+        unique_id: EHS_Compressor_Target_Frequency
+        
+      - name: 'EHS_Compressor_Current_Frequency'
+        slave: 2
+        address: 27
+        scan_interval: 20
+        unit_of_measurement: Hz
+        precision: 1
+        unique_id: EHS_Compressor_Current_Frequency
+        
+      - name: 'ETS_DC_Link_1_Voltage'
+        slave: 2
+        address: 28
+        unit_of_measurement: V
+        scan_interval: 30
+        unique_id: ETS_DC_Link_1_Voltage
+        
+      - name: 'EHS_Outdoor_Fan_speed'
+        slave: 2
+        address: 29
+        scan_interval: 20
+        unit_of_measurement: 'rmp'
+        scale: 1
+        precision: 1
+        unique_id: EHS_Outdoor_Fan_speed
+        
+      - name: 'EHS_EVA_In_Temperature'
+        slave: 2
+        address: 30
+        unit_of_measurement: °C
+        scale: 0.1
+        #data_type: int8
+        scan_interval: 30
+        precision: 1
+        unique_id: EHS_EVA_In_Temperature
+        
+      - name: 'EHS_IMP1_Temperature'
+        slave: 2
+        address: 31
+        unit_of_measurement: °C
+        scale: 0.1
+        #data_type: int8
+        scan_interval: 30
+        precision: 1
+        unique_id: EHS_IMP1_Temperature
+        
+      - name: 'ETS_Compressor_OCT1'
+        slave: 2
+        address: 32
+        scan_interval: 30
+        unique_id: ETS_Compressor_OCT1
+        
+      - name: 'EHS_Compressor_Top_Temperature'
+        slave: 2
+        address: 33
+        unit_of_measurement: °C
+        scale: 0.1
+        #data_type: int8
+        scan_interval: 30
+        precision: 1
+        unique_id: EHS_Complressor_Top_Temperature
+        
+      - name: 'EHS_High_pressure_saturation_temperature'
+        slave: 2
+        address: 34
+        unit_of_measurement: °C
+        scale: 0.1
+        #data_type: int8
+        scan_interval: 30
+        precision: 1
+        unique_id: EHS_High_pressure_saturation_temperature
+        
+      - name: 'EHS_Low_pressure_saturation_temperature'
+        slave: 2
+        address: 35
+        unit_of_measurement: °C
+        scale: 0.1
+        data_type: int8
+        scan_interval: 30
+        precision: 1
+        unique_id: EHS_Low_pressure_saturation_temperature
+        
+#Indoor-------------------------------------------------------------------------
+        
       - name: 'EHS_Error_Code'
         slave: 2
         address: 63
@@ -114,6 +366,15 @@
         precision: 1
         unique_id: EHS_Water_OUT_Temp
         
+      - name: 'EHS_Water_OUT_Set_Temp'
+        unit_of_measurement: °C
+        slave: 2
+        address: 68
+        scale: 0.1
+        scan_interval: 20
+        precision: 1
+        unique_id: EHS_Water_OUT_Set_Temp
+        
       - name: 'EHS_Hot_Water_Mode'
         slave: 2
         address: 73
@@ -129,84 +390,126 @@
         precision: 1
         unique_id: EHS_Hot_Water_Temp_BSP
         
-      - name: 'EHS_Water_OUT_Set_Temp'
-        unit_of_measurement: °C
-        slave: 2
-        address: 68
-        scale: 0.1
-        scan_interval: 20
-        precision: 1
-        unique_id: EHS_Water_OUT_Set_Temp
-        
-      - name: 'EHS_Booster_Heater'
-        slave: 2
-        address: 85
-        unique_id: EHS_Booster_Heater
-        
-      - name: 'EHS_Booster_Heater'
-        slave: 2
-        address: 85
-        unique_id: EHS_Backup_Heater
-        
-      - name: 'EHS_Water_Flow'
-        unit_of_measurement: l/min
-        slave: 2
-        address: 87
-        scale: 0.1
-        scan_interval: 30
-        precision: 2
-        unique_id: EHS_Water_Flow
-        
+# Experimental------------------------------------------------------------------
+
       - name: 'EHS_3_way_valve_position'
         slave: 2
-        address: 89
+        address: 82 #0x4067
         unique_id: EHS_3_way_valve_position 
-        
-      - name: 'EHS_FR_Controll'
+
+      - name: 'EHS_Backup_Heater'
         slave: 2
-        address: 88
-        scan_interval: 20
-        unique_id: EHS_FR_Controll
+        address: 83 #0x406C
+        unique_id: EHS_Backup_Heater
         
-      - name: 'EHS_Mixing_valve_temp'
+      - name: 'EHS_Booster_Heater'
+        slave: 2
+        address: 84 #0x4087
+        unique_id: EHS_Booster_Heater
+        
+      - name: 'EHS_Pump_PWM'
+        unit_of_measurement: '%'
+        slave: 2
+        address: 85 #0x40C4
+        unique_id: EHS_Pump_PWM
+        
+      - name: 'EHS_Controller_sensor_temp'
         unit_of_measurement: °C
         slave: 2
-        address: 90
+        address: 87 #0x4203
         scale: 0.1
         scan_interval: 20
         precision: 1
-        unique_id: EHS_Mixing_valve_temp
-        
-      - name: 'EHS_Fan_speed'
-        slave: 2
-        address: 6
-        scan_interval: 20
-        unique_id: EHS_Fan_speed
+        unique_id: EHS_Controller_sensor_temp
         
       - name: 'EHS_Backup_heater_temp'
         unit_of_measurement: °C
         slave: 2
-        address: 91
+        address: 88 #0x4239
         scale: 0.1
         scan_interval: 20
         precision: 1
         unique_id: EHS_Backup_heater_temp
         
-      - name: 'EHS_Room_temp'
+      - name: 'EHS_Water_Out_Target' 
         unit_of_measurement: °C
         slave: 2
-        address: 92
+        address: 89 #0x4247
         scale: 0.1
         scan_interval: 20
         precision: 1
-        unique_id: EHS_Room_temp
+        unique_id: EHS_Water_Out_Target
+
+      - name: 'EHS_Water_Law_Target'
+        unit_of_measurement: °C
+        slave: 2
+        address: 90 #0x4248
+        scale: 0.1
+        scan_interval: 20
+        precision: 1
+        unique_id: EHS_Water_Law_Target
         
+      - name: 'EHS_Water_Law_Target_temp'
+        unit_of_measurement: °C
+        slave: 2
+        address: 91 #0x427F
+        scale: 0.1
+        scan_interval: 20
+        precision: 1
+        unique_id: EHS_Water_Law_Target_temp
         
+      - name: 'EHS_Mixing_valve_temp'
+        unit_of_measurement: °C
+        slave: 2
+        address: 92 #0x428C
+        scale: 0.1
+        scan_interval: 20
+        precision: 1
+        unique_id: EHS_Mixing_valve_temp        
         
-    climates: 
+      - name: 'EHS_Modulation_Fan'
+        unit_of_measurement: '%'
+        slave: 2
+        address: 93 #0x42CC
+        unique_id: EHS_Modulation_Fan
+        
+      - name: 'EHS_Water_Zone_1_temp' 
+        unit_of_measurement: °C
+        slave: 2
+        address: 94 #0x42D8
+        scale: 0.1
+        scan_interval: 20
+        precision: 1
+        unique_id: EHS_Water_Zone_1_temp
+        
+      - name: 'EHS_Water_Zone_2_temp' 
+        unit_of_measurement: °C
+        slave: 2
+        address: 95 #0x42D9
+        scale: 0.1
+        scan_interval: 20
+        precision: 1
+        unique_id: EHS_Water_Zone_2_temp        
+        
+      - name: 'EHS_Water_Flow'
+        unit_of_measurement: l/min
+        slave: 2
+        address: 96 #0x42E9
+        scale: 0.1
+        scan_interval: 30
+        precision: 2
+        unique_id: EHS_Water_Flow
+        
+      - name: 'EHS_FR_Controll'
+        slave: 2
+        address: 99 #0x42F1
+        scan_interval: 20
+        unique_id: EHS_FR_Controll
+        
+    climates:
       - name: 'EHS_Heating_Set'
         slave: 2
-        address: 66
+        address: 90
         scale: 0.1
         max_temp: 55
         min_temp: 20
@@ -235,3 +538,27 @@
         #Soll Temp
         hvac_onoff_register: 72
         unique_id: EHS_Hot_Water_Set
+        
+      - name: 'EHS_Zone_2_Water_temp'
+        slave: 2
+        address: 83
+        #Ist Temp
+        scale: 0.1
+        max_temp: 65
+        min_temp: 15
+        scan_interval: 20
+        target_temp_register: 95 #0x42D7
+        hvac_onoff_register: 86 #0x411E
+        unique_id: EHS_Zone_2_Water_temp
+        
+      - name: 'EHS_Zone_2_Room_temp' #Funktion not completely cleare
+        slave: 2
+        address: 94 #0x42D6
+        scale: 0.1
+        max_temp: 30
+        min_temp: 16
+        scan_interval: 20
+        target_temp_register: 94 #0x42D6
+        #Soll Temp
+        #hvac_onoff_register: 82
+        unique_id: EHS_Zone_2_Room_temp

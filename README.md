@@ -59,7 +59,25 @@ service: modbus.write_register
 data:
   hub: samsung
   address: 7000
-  value: [0x411E, 0x42D7, 0x42D6, 0x4087, 0x406c, 0x42E9, 0x42F1, 0x4067, 0x428C]
+  value: 
+  - 0x4067 #82 3 way valve position
+  - 0x406C #83 Backup_Heater read-only
+  - 0x4087 #84 Booster
+  - 0x40C4 #85 PWM Water Pump
+  - 0x411E #86 Zone_2 ON/OFF
+  - 0x4203 #87 Controller Room Temp Sensor
+  - 0x4239 #88 Heater Sensor Temp
+  - 0x4247 #89 VAR_IN_TEMP_WATER_OUTLET_TARGET_F
+  - 0x4248 #90 VAR_IN_TEMP_WATER_LAW_TARGET_F
+  - 0x427F #91 VAR_IN_TEMP_WATER_LAW_F 
+  - 0x428C #92 Mixing Valve Temp
+  - 0x42CC #93 VAR_IN_MODULATING_FAN
+  - 0x42D6 #94 Zone_2 Set Room temp
+  - 0x42D7 #95 Zone_2 Set Water temp
+  - 0x42D8 #96 VAR_IN_TEMP_WATER_OUTLET_ZONE1_F
+  - 0x42D9 #97 VAR_IN_TEMP_WATER_OUTLET_ZONE2_F
+  - 0x42E9 #98 Water_flow
+  - 0x42F1 #99 FR controll
   slave: 2
 ```
 Add outdoor unit Funktions:
@@ -68,7 +86,39 @@ service: modbus.write_register
 data:
   hub: samsung
   address: 6000
-  value: [0x8238, 0x8204, 0x823D]
+  value:
+  - 0x8001 #4 Test
+  - 0x8001 #5 Operation Mode	
+  - 0x8010 #6 Compressor 1 Status5
+  - 0x8017 #7 Hot Gas 1 Status
+  - 0x8019 #8 Liquid Valuve Status
+  - 0x8021 #9 EVI Bypass
+  - 0x801A #10 4-way Valve Status
+  - 0x80AF #11 Base Heater
+  - 0x80D7 #12 PHE Heater
+  - 0x8204 #13 Outdoor temperature
+  - 0x8206 #14 High Pressure
+  - 0x8208 #15 Low Pressure
+  - 0x820A #16 Discharge 1 Temperature
+  - 0x8217 #17 Compressor 1 Current
+  - 0x8218 #18 Heat exchanger outlet temperature (condout)
+  - 0x821A #19 Suction Temperature
+  - 0x821E #20 EVI In Temperature
+  - 0x8220 #21 EVI Out Temperature
+  - 0x8226 #22 fanstep1
+  - 0x8229 #23 Main EEV1
+  - 0x8235 #24 Error Code
+  - 0x8236 #25 Compressor 1 Order Frequency
+  - 0x8237 #26 Compressor 1 Target Frequency
+  - 0x8238 #27 Compressor 1 Current Frequency
+  - 0x823B #28 DC Link 1 Voltage
+  - 0x823D #29 Outdoor Fan1 RPM
+  - 0x82DE #30 EVA In Temperature
+  - 0x8254 #31 IPM1 Temperature
+  - 0x8278 #32 Compressor OCT1
+  - 0x8280 #33 Compressor 1 Top Temperature
+  - 0x829F #34 High pressure saturation temperature
+  - 0x82A0 #35 Low pressure saturation temperature
   slave: 2
 ```
 

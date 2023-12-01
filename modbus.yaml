@@ -494,7 +494,7 @@
       - name: 'EHS_Water_Flow'
         unit_of_measurement: l/min
         slave: 2
-        address: 96 #0x42E9
+        address: 98 #0x42E9
         scale: 0.1
         scan_interval: 30
         precision: 2

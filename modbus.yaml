@@ -223,7 +223,7 @@
         slave: 2
         address: 22
         scan_interval: 20
-        unit_of_measurement: 'rmp'
+        unit_of_measurement: 'rpm'
         scale: 1
         precision: 1
         unique_id: EHS_Modulation_Fan
@@ -275,7 +275,7 @@
         slave: 2
         address: 29
         scan_interval: 20
-        unit_of_measurement: 'rmp'
+        unit_of_measurement: 'rpm'
         scale: 1
         precision: 1
         unique_id: EHS_Outdoor_Fan_speed
